@@ -18,11 +18,23 @@ public class CorsConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        configuration.addAllowedOrigin(frontendUrl);
+        configuration.setAllowedOrigins(
+                java.util.List.of(frontendUrl)
+        );
 
-        configuration.addAllowedHeader("*");
+        configuration.setAllowedHeaders(
+                java.util.List.of("*")
+        );
 
-        configuration.addAllowedMethod("*");
+        configuration.setAllowedMethods(
+                java.util.List.of(
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "DELETE",
+                        "OPTIONS"
+                )
+        );
 
         configuration.setAllowCredentials(true);
 
